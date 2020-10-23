@@ -6,7 +6,7 @@ metadata:
 spec:
   releaseName: azure-helm-voting
   chart:
-    git: https://github.com/joalmeid/azure-arc-multi-cluster
+    git: git@github.com:joalmeid/azure-arc-multi-cluster
     ref: helm
     path: charts/azure-voting
   values:
