@@ -1,0 +1,15 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: azure-helm-voting
+  namespace: default
+spec:
+  releaseName: azure-helm-voting
+  chart:
+    git: https://github.com/joalmeid/azure-arc-multi-cluster
+    ref: helm
+    path: charts/azure-voting
+  values:
+    title: "SHS Helm Azure Vote App"
+    value1: Red
+    value2: Orange

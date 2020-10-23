@@ -5,13 +5,13 @@ Azure Arc Multi Customer, Multi Cluster with multi apps
 > rg: **mansfield**
 > acr: **mansfieldacr.azurecr.io**
 
-## Gitops /w Helm
+## Gitops /w Helm (https://github.com/joalmeid/azure-arc-multi-cluster branch:helm)
 
-az k8sconfiguration create --name mansfieldarcaks-config --cluster-name mansfieldarcaks --resource-group mansfield --operator-instance-name shs-cluster-config --operator-namespace shs-cluster-config --repository-url https://github.com/joalmeid/azure-arc-multi-cluster --scope cluster --cluster-type connectedClusters --operator-params='--git-branch manifests'
+az k8sconfiguration create --name mansfieldarcaks-config --cluster-name mansfieldarcaks --resource-group mansfield --operator-instance-name shs-helm-cluster-config --operator-namespace shs-helm-cluster-config --operator-params='--git-readonly --git-path=releases --git-branch helm' --enable-helm-operator --helm-operator-version='0.6.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/joalmeid/azure-arc-multi-cluster --scope namespace --cluster-type connectedClusters
 
 az k8sconfiguration show --name mansfieldarcaks-config --cluster-name mansfieldarcaks --resource-group mansfield --cluster-type connectedClusters
 
 kubectl get ns --show-labels
-kubectl -n shs-cluster-config get deploy  -o wide
+kubectl -n shs-helm-cluster-config get deploy  -o wide
 
 az k8sconfiguration delete --name mansfieldarcaks-config  --cluster-name mansfieldarcaks --resource-group mansfield --cluster-type connectedClusters --yes

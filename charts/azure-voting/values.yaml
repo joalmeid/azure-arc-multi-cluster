@@ -1,0 +1,7 @@
+# Azure Vote Image
+image: mansfieldacr.azurecr.io/azure-vote-front:v1
+
+# Azure Vote UI controll
+title: "SHS Azure Vote App"
+value1: Blue
+value2: Green
