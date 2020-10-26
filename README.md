@@ -19,4 +19,6 @@ kubectl describe helmrelease azure-voting
 
 kubectl port-forward -n azure-helmk-voting svc/azure-voting-frontend 8080:80
 
+kubectl logs -f deploy/shs-helmk-cluster-config-helm-azure-helmk-voting-helm-operator -n azure-helmk-voting
+
 az k8sconfiguration delete --name mansfieldarcaks-config  --cluster-name mansfieldarcaks --resource-group mansfield --cluster-type connectedClusters --yes
