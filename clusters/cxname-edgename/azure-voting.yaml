@@ -1,0 +1,17 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: azure-voting
+  namespace: azure-helmk-voting
+spec:
+  releaseName: azure-voting
+  chart:
+    git: https://github.com/joalmeid/azure-voting-app
+    ref: master
+    path: charts/azure-voting
+  values:
+    image: mansfieldacr.azurecr.io/azure-vote-front:v1
+    title: "SHS Helmk Azure Vote App"
+    value1: Brow
+    value2: Gray
+
