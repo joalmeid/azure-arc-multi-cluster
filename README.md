@@ -14,6 +14,9 @@ az k8sconfiguration show --name mansfieldarcaks-config --cluster-name mansfielda
 kubectl get ns --show-labels
 kubectl -n azure-voting get deploy  -o wide
 
-kubectl port-forward -n azure-voting svc/azure-helm-voting-frontend 8080:80
+kubectl wait --for=condition=released helmrelease/azure-voting -n azure-helmk-voting
+kubectl describe helmrelease azure-voting
+
+kubectl port-forward -n azure-helmk-voting svc/azure-voting-frontend 8080:80
 
 az k8sconfiguration delete --name mansfieldarcaks-config  --cluster-name mansfieldarcaks --resource-group mansfield --cluster-type connectedClusters --yes
