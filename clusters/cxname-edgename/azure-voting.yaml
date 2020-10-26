@@ -7,7 +7,6 @@ spec:
   releaseName: azure-voting
   chart:
     git: https://github.com/joalmeid/azure-voting-app
-    ref: master
     path: charts/azure-voting
   values:
     image: mansfieldacr.azurecr.io/azure-vote-front:v1
