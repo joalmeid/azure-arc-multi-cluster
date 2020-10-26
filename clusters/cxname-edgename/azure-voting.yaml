@@ -2,7 +2,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: azure-voting
-  namespace: workload-A
+  namespace: workload-a
 spec:
   releaseName: azure-voting
   chart:
