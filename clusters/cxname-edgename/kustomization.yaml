@@ -2,4 +2,3 @@ bases:
   - ../base/
 resources:
   - ./azure-voting.yaml
-  - ./namespace.yaml
